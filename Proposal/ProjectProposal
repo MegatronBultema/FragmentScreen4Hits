@@ -1,0 +1,17 @@
+Megan Bultema: May 22, 2017:
+Project Option 1:
+High level description:
+I will develop a predictive algorithm to determine the likelihood of small molecule inhibitors
+to the human protein target MTH1. The predictive algorithm will be trained on molecule fragment screening analysis including the molecule fingerprint descriptors, _____, and hit scoring. Prediction of small molecule inhibition likelihood will reduce time and cost associated with high-throughput screening of inhibitors towards the human protein target MTH1 as effective cancer treatments.
+
+Presentation:
+Ideally I would build a web app that would take in a small molecule screening library and return as csv with the scored molecules. The web app would show the top 5 hits and highlight the portion(s) (features) of the molecule that contributed to the high score.
+
+Next Step:
+I have trained a Random Forest Classifier with a portion of the fragment screening data however I have imbalanced classes with only 9% of the molecule fragments resulting in inhibition hits towards the target.
+My next step is to deal with the imbalance. I will try weighting first then oversampling of the under represented class. I do not think SMOTE will work for the feature matrix I am working with. The I want to try non-negative matrix factorization (or PCA, or SVD) to look at the feature space. I plan to try Logistic Regression, SVM, and RandomForestClassifier models.
+
+Data:
+https://drive.google.com/open?id=0B539APbPZJM0OF9sYmxsTVhwVkU
+
+Working Code:

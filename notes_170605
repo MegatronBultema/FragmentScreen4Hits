@@ -1,0 +1,162 @@
+test_results (6-5-17), all trained on oversampled data:
+  NN
+    ('score (accuracy):', 0.95604395866394043)
+    ('precision:', 1.0)
+    ('recall:', 0.55555555555555558)
+    [['TN' 'FP']
+    ['FN' 'TP']]
+    [[82  0]
+    [ 4  5]]
+  LR
+    ('score (accuracy):', 0.92307692307692313)
+    ('precision:', 0.625)
+    ('recall:', 0.55555555555555558)
+    [['TN' 'FP']
+    ['FN' 'TP']]
+    [[79  3]
+    [ 4  5]]
+
+  RF
+    ('score (accuracy):', 0.92307692307692313)
+    ('precision:', 0.66666666666666663)
+    ('recall:', 0.44444444444444442)
+    [['TN' 'FP']
+     ['FN' 'TP']]
+    [[80  2]
+     [ 5  4]]
+
+This is still not good enough. Missing aprox. half of the potential hits is not good enough. Maybe I can impose a cost matrix? or try to increase over-sampling?
+
+no overfitting
+
+NN
+  ('score (accuracy):', 0.93406593799591064)
+  ('precision:', 0.7142857142857143)
+  ('recall:', 0.55555555555555558)
+  [['TN' 'FP']
+   ['FN' 'TP']]
+  [[80  2]
+   [ 4  5]]
+
+RF
+  ('score (accuracy):', 0.94505494505494503)
+  ('precision:', 0.83333333333333337)
+  ('recall:', 0.55555555555555558)
+  [['TN' 'FP']
+   ['FN' 'TP']]
+  [[81  1]
+   [ 4  5]]
+LR
+  ('score (accuracy):', 0.92307692307692313)
+  ('precision:', 0.625)
+  ('recall:', 0.55555555555555558)
+  [['TN' 'FP']
+   ['FN' 'TP']]
+  [[79  3]
+   [ 4  5]]
+
+
+Okay so..... I tried running the dTm into a tm_score of low, med and high
+y = data['dTm'].map(lambda x: 2 if x>9 else 1 if 5<x<9 else 0)
+and using this for the 3 of a classifier. this did not lead to better classification... i think becuase it just made the imbalanced class sizes problem worse
+
+Tried xgboost. ouput the predict_proba and made my own threshold cut off and scored this in a confusion matrix (see xgboost.py)
+
+best result:
+In [59]: p['myt']=p[1].map(lambda x: 1 if x>0.02 else 0)
+
+In [60]: confusion_matrix(y_test,p['myt'].values)
+Out[60]:
+array([[69, 13],
+       [ 2,  7]])
+       In [61]: precision_score(y_test, p['myt'].values)
+       Out[61]: 0.34999999999999998
+
+       In [62]: recall_score(y_test, p['myt'].values)
+       Out[62]: 0.77777777777777779
+
+I want to try the predict proba for the other trained models too.
+Started GridSearchCV on xgboost
+In [72]: best_score
+Out[72]: 0.950354609929078
+
+In [73]: best_params
+Out[73]:
+{'learning_rate': 0.1,
+ 'max_depth': 4,
+ 'n_estimators': 50,
+ 'reg_alpha': 0.2,
+ 'scale_pos_weight': 3}
+
+run on original data (not overfit)
+precision: 0.35
+recall: 0.777777777778
+[['TN' 'FP']
+ ['FN' 'TP']]
+[[69 13]
+ [ 2  7]]
+ xgboost randomstate=1
+ precision: 0.227272727273
+recall: 0.555555555556
+[['TN' 'FP']
+ ['FN' 'TP']]
+[[65 17]
+ [ 4  5]]
+
+
+ RF with predict prob (see RF code):
+ precision: 0.368421052632
+recall: 0.777777777778
+[['TN' 'FP']
+ ['FN' 'TP']]
+[[70 12]
+ [ 2  7]]
+
+RF randomstate = 1
+('precision:', 0.22727272727272727)
+('recall:', 0.55555555555555558)
+[['TN' 'FP']
+ ['FN' 'TP']]
+[[65 17]
+ [ 4  5]]
+
+
+
+ NN
+ model.add(Dense(output_dim=100, input_dim=1130, kernel_initializer='normal', activation='relu'))
+ model.add(Dense(output_dim=100, kernel_initializer='normal', activation='relu'))
+ model.add(Dense(output_dim=50, kernel_initializer='normal', activation='relu'))
+ model.add(Dense(output_dim=1, activation='sigmoid'))
+train_test_split(features, yfill, test_size=0.20, random_state=1.....
+ ('precision:', 0.18181818181818182)
+('recall:', 0.44444444444444442)
+[['TN' 'FP']
+ ['FN' 'TP']]
+[[64 18]
+ [ 5  4]]
+
+
+ alright so tomorrow I need to work on dimension reduction ...
+
+
+
+
+
+
+ NN trained and cutoff tuned
+
+ Oversampled data x>0.01
+ ('precision:', 0.21621621621621623)
+('recall:', 0.88888888888888884)
+[['TN' 'FP']
+ ['FN' 'TP']]
+[[53 29]
+ [ 1  8]]
+
+ not oversampled x>0.05
+ '''
+ [['TN' 'FP']
+  ['FN' 'TP']]
+ [[59 23]
+  [ 2  7]]
+  '''
