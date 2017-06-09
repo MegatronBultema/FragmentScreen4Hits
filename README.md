@@ -36,6 +36,15 @@ recall: 0.89
 **Next Steps**
 * A) deploy web app
 * B) **test trained model on ligand fragment screen with ligand screening data**
+      Below is a ROC on the test (ligand screen) data. I think it looks good.... BUT the confusion matrix I build (with varying thresholds) doesn't look so good to me. Am I missing something?
+            ![Alt text](ROC_RandomForestClassifier_HTS.png "Optional Title")
+('precision:', 0.070268228182848502)
+('recall:', 0.88151658767772512)
+[['TN' 'FP']
+ ['FN' 'TP']]
+[[2807 2461]
+ [  25  186]]
+ 
 * C) collect and report recall and precision for all models and feature spaces tested
 * D) insert ROC curves
 * E) preform PCA and fed into classifiers
