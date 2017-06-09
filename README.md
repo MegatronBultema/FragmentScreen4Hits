@@ -25,10 +25,10 @@ https://www.youtube.com/watch?v=NAPYaSQPios
 **Model Selection**
 Various classifier models were tested on subsets of the feature space. Cross fold validation grid search was preformed for random forest and logistic regression models. The structure and hyperparameters of the neural net were explored through manual tunning. The goal of this screen is to identify promising ligands for further investigation, therefore we are willing to accept some ammount of false positives in order to increase the amount of true positives captured. Therefore the threshold was tuned in order to maximize recall while allowing the model precision to suffer. Model stacking was attempted but no increase in recall or precision was forthcoming. A neural network classifier and random forest classifer yeilded similar results, however the random forest classifer provides the added benefit of yeilding feature importance therefor it will be the model emplimented as I move forward.
 Random Forest trained on all features (# training set):
-precision: 0.20
-recall: 0.89
-['TN' 'FP']   [ 50  32]
-['FN' 'TP']   [  1   8]
+<br />precision: 0.20
+<br />recall: 0.89
+<br />['TN' 'FP']   [ 50  32]
+<br />['FN' 'TP']   [  1   8]
 
 
 
@@ -38,13 +38,21 @@ recall: 0.89
 * B) **test trained model on ligand fragment screen with ligand screening data**
       Below is a ROC on the test (ligand screen) data. I think it looks good.... BUT the confusion matrix I build (with varying thresholds) doesn't look so good to me. Am I missing something?
             ![Alt text](ROC_RandomForestClassifier_HTS.png "Optional Title")
-('precision:', 0.070268228182848502)
-('recall:', 0.88151658767772512)
-[['TN' 'FP']
- ['FN' 'TP']]
-[[2807 2461]
- [  25  186]]
- 
+<br /> precision: 0.07
+<br />recall: 0.88
+<br />
+ <br />
+
+Confusion Matrix  | -----------------
+------------- | -------------      
+TP  | FP
+FN  | TP
+
+---HTS screen---   | -----------------
+------------- | -------------
+2807  | 2461
+25  | 186
+
 * C) collect and report recall and precision for all models and feature spaces tested
 * D) insert ROC curves
 * E) preform PCA and fed into classifiers
