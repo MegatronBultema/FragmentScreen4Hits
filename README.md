@@ -55,10 +55,7 @@ recall: 0.89
 
 5. https://github.com/oddt/rfscorevs
 6. http://istar.cse.cuhk.edu.hk/, https://github.com/HongjianLi/istar
-<<<<<<< HEAD
-=======
+
 7. http://silicos-it.be.s3-website-eu-west1.amazonaws.com/cookbook/configuring_osx_for_chemoinformatics/configuring_osx_for_chemoinformatics.html#rdkit
 8. https://github.com/rdkit/rdkit
-
-
->>>>>>> 6faf7d1cfd8395a1527fac0c81d61f70d88daf34
+9. https://github.com/MaxHalford/Prince/blob/master/docs/mca.rst
