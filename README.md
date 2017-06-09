@@ -61,9 +61,10 @@ FN  | TP
 2807  | 2461
 25  | 186
 
+* B.2) test this data with other classifiers (NN)
 * C) collect and report recall and precision for all models and feature spaces tested
 * D) insert ROC curves
-* E) preform PCA and fed into classifiers
+* E) preform PCA and feed into classifiers
 * F) fix my xgboost package
 
 
