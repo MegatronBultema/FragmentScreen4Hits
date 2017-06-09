@@ -27,10 +27,18 @@ Various classifier models were tested on subsets of the feature space. Cross fol
 Random Forest trained on all features (# training set):
 <br />precision: 0.20
 <br />recall: 0.89
-<br />['TN' 'FP']   [ 50  32]
-<br />['FN' 'TP']   [  1   8]
+
+Confusion Matrix  | -----------------
+------------- | -------------      
+TP  | FP
+FN  | TP
 
 
+
+---Fragment Test Data ---   | -----------------
+------------- | -------------
+50  | 32
+1  | 8
 
 
 **Next Steps**
