@@ -1,9 +1,4 @@
-# FragmentScree4Hits
-<br />
-or
-<br />
-# FragmentsPredictHits
-<br />
+# FragmentScree4Hits   or   FragmentsPredictHits
 Predictive Analysis of MTH1 inhibitors.
 
 **Purpose**
