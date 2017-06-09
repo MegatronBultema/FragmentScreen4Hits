@@ -44,9 +44,11 @@ FN  | TP
 **Next Steps**
 * A) deploy web app
 * B) **test trained model on ligand fragment screen with ligand screening data**
-      Below is a ROC on the test (ligand screen) data. I think it looks good.... BUT the confusion matrix I build (with varying thresholds) doesn't look so good to me. Am I missing something?
-            ![Alt text](ROC_RandomForestClassifier_HTS.png "Optional Title")
-<br /> precision: 0.07
+
+Below is a ROC on the test (ligand screen) data. I think it looks good.... BUT the confusion matrix I build (with varying thresholds) doesn't look so good to me. Am I missing something?
+            <br />![Alt text](ROC_RandomForestClassifier_HTS.png "Optional Title")
+<br /> rh.print_threshold(rffit, HTS_features, HTS_y, 0.3)
+<br />precision: 0.07
 <br />recall: 0.88
 <br />
  <br />
@@ -62,6 +64,24 @@ FN  | TP
 25  | 186
 
 * B.2) test this data with other classifiers (NN)
+Conclusion: Not any better
+<br />rh.print_threshold(estimator_fit, HTS_features.values, HTS_y, 0.002)
+('precision:', 0.061463046757164401)
+('recall:', 0.77251184834123221)
+<br />
+<br />
+
+Confusion Matrix  | -----------------
+------------------| -------------      
+TP  | FP
+FN  | TP
+
+---HTS screen---   | -----------------
+------------- | -------------
+2779  | 2489
+48  | 163
+
+
 * C) collect and report recall and precision for all models and feature spaces tested
 * D) insert ROC curves
 * E) preform PCA and feed into classifiers
