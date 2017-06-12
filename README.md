@@ -1,4 +1,4 @@
-# DSI_Capstone
+# FragmentScreen4Hits   or   FragmentsPredictHits
 Predictive Analysis of MTH1 inhibitors.
 
 **Purpose**
