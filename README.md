@@ -30,7 +30,7 @@ Random Forest trained on all features (# training set):
 
 Confusion Matrix  | -----------------
 ------------- | -------------      
-TP  | FP
+TN  | FP
 FN  | TP
 
 
@@ -55,7 +55,7 @@ Below is a ROC on the test (ligand screen) data. I think it looks good.... BUT t
 
 Confusion Matrix  | -----------------
 ------------- | -------------      
-TP  | FP
+TN  | FP
 FN  | TP
 
 ---HTS screen---   | -----------------
@@ -73,7 +73,7 @@ Conclusion: Not any better
 
 Confusion Matrix  | -----------------
 ------------------| -------------      
-TP  | FP
+TN  | FP
 FN  | TP
 
 ---HTS screen---   | -----------------
