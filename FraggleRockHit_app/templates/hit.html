@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <div class = "jumbotron text-center">
+    <h1>Hit</h1>
+    <p class="lead">Machine Learning Applied to Fragment Based Virtual Screening <br>
+  </div>
+  <div class="clearfix">
+    <img class="img2" src="/static/Test_HTS.png" alt="ROC curve">
+    <span style="vertical-align:middle; line-height: 30px;"><br><br><br><br><br><p>Roc Curve of HTS screen set.</span></div>
+   <br>
+   <div class="table-responsive">
+   <table class="table">
+  <p>{{data | safe}}
+      </div>
+  <p>{{hts_cm | safe}}
+  <p>{{hits | safe}}
+    <form method=post enctype=multipart/form-data>
+      <p><input type=file name=file>
+         <input type=submit value=Upload>
+    </form>
+{% endblock %}

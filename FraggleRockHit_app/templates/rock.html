@@ -1,0 +1,88 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.img2 {
+    float: left;
+}
+p {
+    font-size: 150%;
+}
+
+    table.dataframe, .dataframe th, .dataframe td {
+        border: 1px solid #dddddd;
+        border-spacing: 10px;
+        border-collapse: collapse;;
+        text-align:left;
+        padding: 8px;
+        margin-bottom: 20px;
+        table-layout: fixed;
+        width: 300px;
+      }
+      tr:nth-child(odd)		{ background-color:#eee; }
+      tr:nth-child(even)	{ background-color:#fff; }
+    .f_descrip th {
+    background-color: #ffffff;
+    color: black;}
+    .f_descrip th,td {
+    table-layout: fixed;
+    width: 250px;}
+    .cm th,td {
+    table-layout: fixed;
+    width: 50px;}
+    .cm th {
+    background-color: #ffffff;
+    color: black;}
+    
+    .data_recall_opt th {
+    background-color: #6eb701;
+    color: black;}
+
+    .data_precision_opt th {
+    background-color: #0177b7;
+    color: black;}
+
+</style>
+</head>
+<body>
+
+  <div class = "jumbotron text-center">
+    <h1>Rock</h1>
+    <p class="lead">These are the results.
+  </div>
+  <div class="clearfix">
+    <img class="img2" src="/static/Test.png" alt="ROC curve">
+    <span style="vertical-align:middle; line-height: 30px;"><br><br><br><br><br><p>Our machine learning algorithm was trained on 70% of your fragment library. 30% of your library was withheld as a validation set.</span></div>
+  <div class="clearfix">
+    <img class="img2" src="/static/Feature_Importance_Identifier.png" alt="Feature Importance">
+    <span style="vertical-align:middle; line-height: 30px;"><br><br><br><br><br><p>Feature importance by column name.</span></div>
+   <br><p>{{f_descrip | safe}}
+  <h2>How to choose a threshold:</h2>
+  <br>
+  <h4>Help me maximize hit identification!</h4>
+  <p> If you don't want to miss out on any potential hits but you would like to filter the number of potential high-throughput molecules you invest time in, we suggest the following threshold. This threshold gives you the highest recall score potential. (This is the default selection)
+  <p>{{data_recall_opt | safe}}
+  <p>{{recall_cm | safe}}
+  <p>{{recall_cm2 | safe}}
+    <br><br>
+  <h4>Help me select a few potential hits!</h4>
+  <p> If you only plan to test a few hits you will want to increase your precision and decrease your false hit identificaion. This course will result in fewer hit identifications.
+  <p>{{data_precision_opt | safe}}
+  <p>{{precision_cm | safe}}
+    <br><br>
+  <h2>Provide high-throughput screen for testing.</h2>
+  <p> Now that we have a trained model you can submit a high-throughput screen and allow the model to rank the molecules by probability of being a hit. Your csv file should be in the same format as the training data omiting the scoring column (if there are a different number of columns or columns are in a different order than the training data you will recieve an error.)
+  <form method=post enctype=multipart/form-data>
+    <p><input type=file name=file>
+       <input type=submit value=Upload>
+  </form>
+{% endblock %}

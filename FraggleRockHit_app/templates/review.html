@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <div class = "jumbotron text-center">
+    <h1>Look at fragment data</h1>
+    <p class="lead">only first two rows
+  </div>
+  <span style="color: blue; font-weight: bold;">Event Review</span>
+  <form action="/flag" method='POST' >
+      <button type="submit">Flag as Fraud!</button>
+  </form>
+  <p>{{data | safe}}</p>
+  <p>
+{% endblock %}

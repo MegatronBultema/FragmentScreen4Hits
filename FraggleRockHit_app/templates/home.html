@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <div class = "jumbotron text-center">
+    <image src = '/static/FRH_noback.png' alt="FraggleRockHit"  height="240" width="720">
+    <p class="lead">Machine Learning Applied to Fragment Based Virtual Screening
+  </div>
+
+  <h1>Fraggle</h1>
+  <h4>Provide a fragment library, scorred to your unique target</h4>
+  <p>FraggleRockHit provides a platform to apply advanced machine learning techniques to your unique data. Upload a CSV file of your scored fragment libary and individual phisiochimcal attributes and/or chimcal finger print identifiers.Then proceed to model training.
+  <br><br>
+  <h1>Rock</h1>
+  <h4>Train a Random Forest Classifier</h4>
+  <p>Random Forest Classifiers .... and also alow us to extract feature relevance for user interpretation. A model will be optimized for application to your data then you will be allowed to review statistics and select the threshold which yeilds the most effective results for your objective.
+  <br><br>
+  <h1>Hit</h1>
+  <h4>Review predicted hits</h4>
+  <p>Provide the high-throughput screen of your choice. This libary will be applied to a uniquely trained and optimized model to yield a predictive hit propensity. FraggleRockHit will also provide a list of important features to consider during lead optimization.
+{% endblock %}

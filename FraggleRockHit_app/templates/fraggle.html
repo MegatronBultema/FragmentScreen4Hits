@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <!doctype html>
+  <div class = "jumbotron text-center">
+  <h1>Fraggle</h1>
+  <p>Upload fragment screening results in csv format.
+    </div>
+    <p>Model trainning has been proven sucessful using descriptors  generated using RDKit: combining chemical fingerprints (Morgan, 1024 bits, radius 4) and physicochemical properties into a single csv file. The first column in the uploaded file should contain the fragment scorring (1 indicates fragment hit, 0 indicates not a hit). The top row of the file should contain the column labels.
+  <form method=post enctype=multipart/form-data>
+    <p><input type=file name=file>
+       <input type=submit value=Upload>
+  </form>
+{% endblock %}
