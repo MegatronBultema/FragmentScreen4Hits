@@ -42,7 +42,9 @@ FN  | TP
 
 
 **Next Steps**
-* A) deploy web app
+* A) deploy web app -check!
+    A.1) add molecule depictions to results page
+            --RDKIT is awesome!! It is functions to integrate morgan figerprints with ML models from sklearn, just wow.
 * B) **test trained model on ligand fragment screen with ligand screening data**
 
 Below is a ROC on the test (ligand screen) data. I think it looks good.... BUT the confusion matrix I build (with varying thresholds) doesn't look so good to me. Am I missing something?
@@ -105,3 +107,4 @@ FN  | TP
 7. http://silicos-it.be.s3-website-eu-west1.amazonaws.com/cookbook/configuring_osx_for_chemoinformatics/configuring_osx_for_chemoinformatics.html#rdkit
 8. https://github.com/rdkit/rdkit
 9. https://github.com/MaxHalford/Prince/blob/master/docs/mca.rst
+10. http://www.rdkit.org/docs/Cookbook.html
